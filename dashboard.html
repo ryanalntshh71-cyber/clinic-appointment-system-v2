@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Clinic</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="layout">
+    <div class="sidebar">
+      <h2>Clinic</h2>
+      <ul class="menu">
+        <li class="active">Dashboard</li>
+        <li onclick="scrollToBooking()">Book Appointment</li>
+        <li onclick="logout()">Logout</li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1 id="welcome">Dashboard</h1>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Total Appointments</h3>
+          <div class="big" id="total">0</div>
+        </div>
+        <div class="card">
+          <h3>Pending</h3>
+          <div class="big" id="pending">0</div>
+        </div>
+      </div>
+
+      <div class="panel" id="booking">
+        <h2>Book Appointment</h2>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <select class="input" id="doctor" style="max-width:260px;">
+            <option value="Dr. Ahmed">Dr. Ahmed</option>
+            <option value="Dr. Sarah">Dr. Sarah</option>
+            <option value="Dr. John">Dr. John</option>
+          </select>
+
+          <input class="input" id="date" type="date" style="max-width:220px;" />
+          <input class="input" id="time" type="time" style="max-width:180px;" />
+          <button class="btn-sm btn-success" onclick="book()">Book</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>My Appointments</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
